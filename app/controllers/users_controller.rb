@@ -11,9 +11,10 @@ end
     @users = User.paginate(page: params[:page])
   end
 
-def show
+  def show
     @user = User.find(params[:id])
-end
+    @microposts = @user.microposts.paginate(page: params[:page])
+  end
 
 def create
     @user = User.new(user_params)
